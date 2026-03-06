@@ -1,182 +1,1185 @@
 <!doctype html>
 <html lang="vi">
-
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <title>Phía Sau Màn Nhung | Đang Nâng Cấp</title>
+  <meta name="description" content="Phía Sau Màn Nhung là không gian tôn vinh những con người âm thầm nâng đỡ, hỗ trợ và đồng hành cùng các ngôi sao, nghệ sĩ và những người tạo ảnh hưởng tích cực trên toàn cầu. Website hiện đang được nâng cấp." />
+  <link rel="canonical" href="https://www.phiasaumannhung.com/" />
+  <meta property="og:title" content="Phía Sau Màn Nhung | Đang Nâng Cấp" />
+  <meta property="og:description" content="Tôn vinh những con người đứng phía sau ánh sáng sân khấu. Website hiện đang được nâng cấp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.phiasaumannhung.com/" />
+  <meta property="og:image" content="https://www.phiasaumannhung.com/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#08070b" />
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root{
+      --bg:#08070b;
+      --bg-2:#0f0d14;
+      --card:rgba(255,255,255,.06);
+      --card-2:rgba(255,255,255,.08);
+      --line:rgba(255,255,255,.12);
+      --text:#f5f1ea;
+      --muted:#c9c1b5;
+      --soft:#a59683;
+      --gold:#d7b98a;
+      --gold-2:#f0d3a2;
+      --red:#5a0d16;
+      --shadow:0 20px 80px rgba(0,0,0,.42);
+      --radius:24px;
+      --radius-lg:34px;
+      --max:1200px;
+      --header-h:76px;
+    }
 
-<title>Phía Sau Màn Nhung</title>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 50% -10%, rgba(143,22,39,.22), transparent 55%),
+        radial-gradient(900px 600px at 50% 20%, rgba(215,185,138,.10), transparent 45%),
+        linear-gradient(180deg, #09070b 0%, #0a0910 22%, #09070c 100%);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
 
-<meta name="description"
-content="Phía Sau Màn Nhung là dự án tôn vinh những con người thầm lặng đứng phía sau các ngôi sao và nghệ sĩ trên toàn thế giới.">
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button{font:inherit}
 
-<link rel="canonical" href="https://phiasaumannhung.com">
+    .bg{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:-3;
+    }
 
-<meta property="og:title" content="Phía Sau Màn Nhung">
-<meta property="og:description"
-content="Tôn vinh những con người phía sau ánh đèn sân khấu.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://phiasaumannhung.com">
+    .bg::before,
+    .bg::after{
+      content:"";
+      position:absolute;
+      inset:-10%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.06) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 35%, rgba(255,255,255,.05) 0 1px, transparent 2px),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,.04) 0 1px, transparent 2px);
+      background-size: 240px 240px, 320px 320px, 280px 280px;
+      opacity:.18;
+      animation:drift 18s linear infinite;
+    }
 
-<link rel="stylesheet" href="/assets/style.css">
+    .bg::after{
+      transform:scale(1.2);
+      opacity:.10;
+      animation-duration:30s;
+      filter:blur(1px);
+    }
 
+    @keyframes drift{
+      from{transform:translateY(0)}
+      to{transform:translateY(40px)}
+    }
+
+    .spotlights{
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    .spotlights::before,
+    .spotlights::after{
+      content:"";
+      position:absolute;
+      top:-15%;
+      width:38vw;
+      height:90vh;
+      filter:blur(10px);
+      opacity:.22;
+      background:linear-gradient(180deg, rgba(255,240,210,.22), rgba(255,215,155,.02) 52%, transparent 80%);
+      clip-path:polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+      transform-origin:top center;
+      animation:sway 8s ease-in-out infinite alternate;
+    }
+
+    .spotlights::before{left:-4vw; transform:rotate(9deg)}
+    .spotlights::after{right:-4vw; transform:rotate(-9deg); animation-delay:1.5s}
+
+    @keyframes sway{
+      from{transform:rotate(7deg) translateY(0)}
+      to{transform:rotate(13deg) translateY(20px)}
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(16px);
+      background:linear-gradient(180deg, rgba(9,7,11,.82), rgba(9,7,11,.48));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .header-wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      min-height:var(--header-h);
+      padding:16px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,233,196,.9), rgba(215,185,138,.55) 35%, rgba(86,19,30,.5) 68%, rgba(0,0,0,0) 72%),
+        linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.04));
+      box-shadow:
+        inset 0 1px 10px rgba(255,255,255,.12),
+        0 0 28px rgba(215,185,138,.18);
+      flex:0 0 auto;
+    }
+
+    .brand-text{
+      min-width:0;
+    }
+
+    .brand-kicker{
+      font: 600 11px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--soft);
+      margin-bottom:4px;
+      white-space:nowrap;
+    }
+
+    .brand-title{
+      font-size:clamp(18px, 2vw, 28px);
+      font-weight:700;
+      line-height:1;
+      letter-spacing:.01em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .nav a{
+      font: 500 14px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:#e6dccf;
+      padding:12px 14px;
+      border-radius:999px;
+      transition:.25s ease;
+      border:1px solid transparent;
+      white-space:nowrap;
+    }
+
+    .nav a:hover{
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.10);
+      color:#fff8ee;
+    }
+
+    .nav a.nav-cta{
+      background:linear-gradient(180deg, rgba(255,227,183,.18), rgba(255,227,183,.08));
+      border-color:rgba(255,223,173,.22);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .hero{
+      position:relative;
+      min-height:calc(100vh - var(--header-h));
+      display:grid;
+      align-items:center;
+      overflow:hidden;
+    }
+
+    .hero-wrap{
+      max-width:var(--max);
+      width:100%;
+      margin:0 auto;
+      padding:56px 20px 72px;
+      display:grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap:28px;
+      align-items:center;
+    }
+
+    .hero-copy{
+      position:relative;
+      z-index:2;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      font:600 12px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#eadcc8;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      margin-bottom:18px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--gold-2);
+      box-shadow:0 0 20px rgba(240,211,162,.75);
+      flex:0 0 auto;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:clamp(40px, 8vw, 88px);
+      line-height:.95;
+      letter-spacing:-.03em;
+      text-wrap:balance;
+    }
+
+    .hero-lead{
+      margin:22px 0 0;
+      max-width:820px;
+      font-size:clamp(18px, 2.2vw, 24px);
+      line-height:1.7;
+      color:#e0d7cb;
+      text-wrap:pretty;
+    }
+
+    .hero-lead strong{
+      color:#fff4e5;
+      font-weight:700;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .btn{
+      appearance:none;
+      border:none;
+      cursor:pointer;
+      border-radius:999px;
+      padding:15px 22px;
+      min-height:52px;
+      font:600 15px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      color:#1b1205;
+      background:linear-gradient(180deg, #f1d5a5 0%, #d7b98a 100%);
+      box-shadow:0 18px 40px rgba(215,185,138,.18), inset 0 1px 0 rgba(255,255,255,.45);
+    }
+
+    .btn-secondary{
+      color:#fff4e3;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-note{
+      margin-top:18px;
+      font:500 14px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:#c6bbac;
+      max-width:700px;
+    }
+
+    .hero-stage{
+      position:relative;
+      min-height:560px;
+      isolation:isolate;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .frame{
+      position:relative;
+      width:min(100%, 460px);
+      aspect-ratio: 0.9;
+      border-radius:34px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(1000px 500px at 50% -10%, rgba(255,234,199,.10), transparent 50%),
+        linear-gradient(180deg, rgba(18,14,24,.96), rgba(8,7,11,.96));
+      box-shadow:0 30px 100px rgba(0,0,0,.45);
+    }
+
+    .frame::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), transparent 22%),
+        radial-gradient(60% 16% at 50% 3%, rgba(255,225,170,.28), transparent 70%);
+      pointer-events:none;
+      z-index:6;
+    }
+
+    .frame-stage{
+      position:absolute;
+      inset:auto 0 0 0;
+      height:34%;
+      background:
+        radial-gradient(60% 100% at 50% 0%, rgba(255,218,158,.24), transparent 70%),
+        linear-gradient(180deg, rgba(28,22,35,0), rgba(10,9,12,.9) 30%, rgba(5,4,7,1) 100%);
+      z-index:2;
+    }
+
+    .frame-floor{
+      position:absolute;
+      left:-8%;
+      right:-8%;
+      bottom:-16%;
+      height:38%;
+      border-radius:50%;
+      background:
+        radial-gradient(ellipse at center, rgba(255,229,186,.18) 0%, rgba(255,206,134,.10) 18%, rgba(0,0,0,0) 60%),
+        radial-gradient(ellipse at center, rgba(20,15,22,.95) 55%, rgba(0,0,0,1) 76%);
+      filter:blur(4px);
+      z-index:1;
+    }
+
+    .curtain{
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:52%;
+      background:
+        linear-gradient(90deg, rgba(40,4,10,.95), rgba(94,12,24,.95) 40%, rgba(132,18,37,.9) 50%, rgba(90,11,24,.96) 65%, rgba(39,4,10,.96)),
+        repeating-linear-gradient(90deg,
+          rgba(255,255,255,.04) 0 8px,
+          rgba(0,0,0,0) 8px 22px,
+          rgba(255,255,255,.03) 22px 30px);
+      box-shadow:
+        inset -16px 0 30px rgba(0,0,0,.24),
+        inset 16px 0 30px rgba(255,255,255,.03);
+      z-index:4;
+      will-change:transform;
+    }
+
+    .curtain.left{
+      left:0;
+      transform:translateX(0);
+      border-right:1px solid rgba(255,255,255,.08);
+      transform-origin:left center;
+      animation:curtainLeft 2.4s cubic-bezier(.2,.8,.2,1) .25s forwards;
+    }
+
+    .curtain.right{
+      right:0;
+      transform:translateX(0);
+      border-left:1px solid rgba(255,255,255,.08);
+      transform-origin:right center;
+      animation:curtainRight 2.4s cubic-bezier(.2,.8,.2,1) .25s forwards;
+    }
+
+    .curtain::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(255,238,196,.12), transparent 28%),
+        radial-gradient(circle at 80% 22%, rgba(255,220,170,.08), transparent 26%);
+      mix-blend-mode:screen;
+    }
+
+    @keyframes curtainLeft{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-84%)}
+    }
+
+    @keyframes curtainRight{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(84%)}
+    }
+
+    .silhouette{
+      position:absolute;
+      left:50%;
+      bottom:17%;
+      width:110px;
+      height:220px;
+      transform:translateX(-50%);
+      z-index:3;
+      opacity:0;
+      animation:fadeUp .9s ease 1.55s forwards;
+      filter:drop-shadow(0 18px 24px rgba(0,0,0,.45));
+    }
+
+    .silhouette::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:0;
+      width:52px;
+      height:52px;
+      transform:translateX(-50%);
+      border-radius:50%;
+      background:linear-gradient(180deg, rgba(34,32,35,.98), rgba(12,12,14,.98));
+    }
+
+    .silhouette::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:40px;
+      width:76px;
+      height:160px;
+      transform:translateX(-50%);
+      border-radius:40px 40px 24px 24px;
+      background:
+        linear-gradient(180deg, rgba(25,24,27,.98), rgba(7,7,9,.98));
+      clip-path:polygon(28% 0, 72% 0, 100% 100%, 0 100%);
+    }
+
+    .halo{
+      position:absolute;
+      left:50%;
+      top:12%;
+      width:64%;
+      aspect-ratio:1;
+      transform:translateX(-50%);
+      border-radius:50%;
+      background:
+        radial-gradient(circle at center, rgba(255,233,201,.42) 0%, rgba(255,220,160,.14) 24%, rgba(255,215,145,.03) 48%, transparent 72%);
+      filter:blur(6px);
+      z-index:0;
+      animation:pulse 5s ease-in-out infinite;
+    }
+
+    @keyframes pulse{
+      0%,100%{transform:translateX(-50%) scale(1); opacity:.78}
+      50%{transform:translateX(-50%) scale(1.05); opacity:1}
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateX(-50%) translateY(14px)}
+      to{opacity:1; transform:translateX(-50%) translateY(0)}
+    }
+
+    .glow-card{
+      position:absolute;
+      right:-8px;
+      bottom:34px;
+      width:min(82%, 320px);
+      padding:18px 18px 16px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      z-index:5;
+      opacity:0;
+      transform:translateY(14px);
+      animation:cardIn .85s ease 1.9s forwards;
+    }
+
+    @keyframes cardIn{
+      to{opacity:1; transform:translateY(0)}
+    }
+
+    .glow-card .small{
+      margin:0 0 8px;
+      font:600 11px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:#ddceb7;
+    }
+
+    .glow-card p{
+      margin:0;
+      font:500 14px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:#f2ebdf;
+    }
+
+    .scroll-cue{
+      position:absolute;
+      left:50%;
+      bottom:24px;
+      transform:translateX(-50%);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      color:#cabda8;
+      font:500 12px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      z-index:9;
+      opacity:.88;
+    }
+
+    .scroll-cue .mouse{
+      width:28px;
+      height:44px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.24);
+      position:relative;
+      background:rgba(255,255,255,.03);
+    }
+
+    .scroll-cue .mouse::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:8px;
+      width:4px;
+      height:10px;
+      border-radius:999px;
+      background:#f1d7a8;
+      transform:translateX(-50%);
+      animation:scrollDot 1.4s ease infinite;
+    }
+
+    @keyframes scrollDot{
+      0%{opacity:0; transform:translate(-50%, 0)}
+      30%{opacity:1}
+      100%{opacity:0; transform:translate(-50%, 12px)}
+    }
+
+    .main{
+      position:relative;
+      z-index:2;
+    }
+
+    .section{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 20px 0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:22px;
+    }
+
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      border:1px solid var(--line);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .panel-inner{
+      padding:30px;
+    }
+
+    .kicker{
+      margin:0 0 12px;
+      font:600 12px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:#d7c4a6;
+    }
+
+    .section h2{
+      margin:0;
+      font-size:clamp(28px, 5vw, 52px);
+      line-height:1.02;
+      letter-spacing:-.03em;
+      text-wrap:balance;
+    }
+
+    .section p{
+      margin:18px 0 0;
+      font-size:18px;
+      line-height:1.9;
+      color:#ddd2c4;
+      text-wrap:pretty;
+    }
+
+    .intro{
+      padding-top:12px;
+    }
+
+    .intro .left{grid-column:span 7}
+    .intro .right{grid-column:span 5}
+
+    .stat-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .stat{
+      padding:18px 18px;
+      border-radius:22px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .stat strong{
+      display:block;
+      font-size:28px;
+      line-height:1;
+      color:#fff1d7;
+      margin-bottom:8px;
+    }
+
+    .stat span{
+      display:block;
+      font:500 14px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:#d8ccb9;
+    }
+
+    .vision{
+      padding-top:22px;
+    }
+
+    .vision .panel{
+      position:relative;
+      background:
+        radial-gradient(1000px 500px at 90% -10%, rgba(255,223,173,.10), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+    }
+
+    .vision .panel::after{
+      content:"";
+      position:absolute;
+      inset:auto -10% -45% auto;
+      width:340px;
+      height:340px;
+      border-radius:50%;
+      background:radial-gradient(circle at center, rgba(255,224,175,.08), transparent 64%);
+      pointer-events:none;
+    }
+
+    .cards{
+      padding-top:22px;
+    }
+
+    .cards .item{
+      grid-column:span 4;
+    }
+
+    .item-card{
+      height:100%;
+      min-height:280px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04)),
+        radial-gradient(circle at top right, rgba(255,225,175,.08), transparent 26%);
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:26px 24px 24px;
+      position:relative;
+      overflow:hidden;
+      transition:transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .item-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(255,225,175,.24);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.05)),
+        radial-gradient(circle at top right, rgba(255,225,175,.12), transparent 32%);
+    }
+
+    .item-icon{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(180deg, rgba(255,226,180,.16), rgba(255,226,180,.07));
+      border:1px solid rgba(255,226,180,.18);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+      margin-bottom:20px;
+      font-size:22px;
+    }
+
+    .item-card h3{
+      margin:0;
+      font-size:26px;
+      line-height:1.08;
+      letter-spacing:-.02em;
+    }
+
+    .item-card p{
+      margin-top:14px;
+      font:500 16px/1.8 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:#dcd0c2;
+    }
+
+    .link-panel{
+      padding-top:22px;
+    }
+
+    .link-panel .panel-inner{
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap:18px;
+      align-items:center;
+    }
+
+    .link-block{
+      display:flex;
+      align-items:flex-start;
+      gap:18px;
+      min-width:0;
+    }
+
+    .link-badge{
+      width:64px;
+      height:64px;
+      border-radius:20px;
+      flex:0 0 auto;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,234,194,.95), rgba(213,161,84,.6) 40%, rgba(103,51,0,.28) 70%, transparent 74%),
+        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      border:1px solid rgba(255,220,168,.18);
+      box-shadow:0 12px 28px rgba(0,0,0,.24);
+      font-size:26px;
+    }
+
+    .link-copy h3{
+      margin:0;
+      font-size:clamp(24px, 4vw, 40px);
+      line-height:1.02;
+      letter-spacing:-.03em;
+    }
+
+    .link-copy p{
+      margin-top:12px;
+      font-size:17px;
+      line-height:1.85;
+    }
+
+    .external{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:56px;
+      padding:16px 22px;
+      border-radius:999px;
+      font:600 15px/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:#1c1205;
+      background:linear-gradient(180deg, #f1d5a5 0%, #d7b98a 100%);
+      box-shadow:0 18px 40px rgba(215,185,138,.18), inset 0 1px 0 rgba(255,255,255,.45);
+      white-space:nowrap;
+    }
+
+    .contact{
+      padding-top:22px;
+      padding-bottom:70px;
+    }
+
+    .contact .panel-inner{
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr);
+      gap:20px;
+    }
+
+    .contact-card{
+      padding:22px;
+      border-radius:24px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .mail{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      font:600 16px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:#fff1d6;
+      word-break:break-word;
+    }
+
+    .mail:hover{
+      background:rgba(255,255,255,.08);
+    }
+
+    .mini-list{
+      margin:18px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:12px;
+    }
+
+    .mini-list li{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      font:500 15px/1.8 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:#d8cbb9;
+    }
+
+    .mini-list li::before{
+      content:"✦";
+      color:#e7c992;
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+
+    .site-footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:20px;
+      color:#b9ac9a;
+      font:500 13px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .site-footer .inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      gap:12px;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.in{
+      opacity:1;
+      transform:none;
+    }
+
+    @media (max-width: 1080px){
+      .hero-wrap{grid-template-columns:1fr; padding-top:34px}
+      .hero-stage{min-height:500px}
+      .intro .left,
+      .intro .right,
+      .cards .item{grid-column:span 12}
+      .link-panel .panel-inner,
+      .contact .panel-inner{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 760px){
+      :root{--header-h:68px}
+      .header-wrap{padding:12px 14px}
+      .brand-kicker{display:none}
+      .brand-title{font-size:18px}
+      .nav{
+        gap:6px;
+        overflow:auto;
+        flex-wrap:nowrap;
+        max-width:58vw;
+        scrollbar-width:none;
+      }
+      .nav::-webkit-scrollbar{display:none}
+      .nav a{
+        padding:10px 12px;
+        font-size:13px;
+      }
+      .hero-wrap{padding:24px 14px 82px}
+      .hero h1{font-size:clamp(36px, 13vw, 60px)}
+      .hero-lead{font-size:18px; line-height:1.8}
+      .hero-actions{gap:10px}
+      .btn{width:100%; justify-content:center}
+      .hero-stage{min-height:420px}
+      .frame{width:min(100%, 420px)}
+      .glow-card{left:14px; right:14px; width:auto; bottom:18px}
+      .section{padding:18px 14px 0}
+      .panel-inner{padding:22px}
+      .section p{font-size:17px; line-height:1.85}
+      .item-card{min-height:auto}
+      .mail{font-size:15px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *, *::before, *::after{
+        animation:none !important;
+        transition:none !important;
+      }
+      .reveal{opacity:1; transform:none}
+      .curtain.left{transform:translateX(-84%)}
+      .curtain.right{transform:translateX(84%)}
+      .silhouette, .glow-card{opacity:1; transform:none}
+    }
+  </style>
 </head>
-
-
 <body>
-
-<header class="header">
-
-<div class="logo">
-PHÍA SAU MÀN NHUNG
-</div>
-
-<nav>
-
-<a href="#about">Giới thiệu</a>
-
-<a href="#vision">Ý nghĩa</a>
-
-<a href="#stars">Đường Sao Tỏa Sáng</a>
-
-<a href="#contact">Liên hệ</a>
-
-</nav>
-
-</header>
-
-
-<section class="hero">
-
-<div class="curtain"></div>
-
-<div class="hero-content">
-
-<h1>
-
-Phía Sau Màn Nhung
-
-</h1>
-
-<p>
-
-Không phải ai cũng đứng dưới ánh đèn sân khấu.
-
-Nhưng những người phía sau chính là nền móng để thế giới có những ngôi sao.
-
-</p>
-
-<button id="discover">
-
-Khám phá
-
-</button>
-
-</div>
-
-</section>
-
-
-<section id="about" class="section">
-
-<h2>
-
-Những Con Người Phía Sau
-
-</h2>
-
-<p>
-
-Phía Sau Màn Nhung là một ý tưởng tôn vinh những con người thầm lặng đứng phía sau các nghệ sĩ, nhà sáng tạo và những người có ảnh hưởng tích cực trong xã hội.
-
-Mỗi buổi biểu diễn, mỗi bộ phim, mỗi tác phẩm nghệ thuật, mỗi hành trình thành công đều có những con người không xuất hiện trước công chúng.
-
-Họ là những người tổ chức, hỗ trợ, đồng hành, bảo vệ và xây dựng nền tảng để những ngôi sao có thể tỏa sáng.
-
-</p>
-
-</section>
-
-
-<section id="vision" class="section dark">
-
-<h2>
-
-Ý Nghĩa Của Dự Án
-
-</h2>
-
-<p>
-
-Thế giới thường nhìn thấy ánh sáng trên sân khấu.
-
-Nhưng ít ai nhìn thấy những con người đang làm việc trong bóng tối phía sau.
-
-Phía Sau Màn Nhung được tạo ra để ghi nhận và kết nối những con người đó.
-
-Một ngày nào đó, nơi này sẽ trở thành một hệ sinh thái tôn vinh những người đứng phía sau mọi thành tựu lớn của nghệ thuật và xã hội.
-
-</p>
-
-</section>
-
-
-<section id="stars" class="section">
-
-<h2>
-
-Hành Trình Tỏa Sáng
-
-</h2>
-
-<p>
-
-Nếu Phía Sau Màn Nhung là nơi ghi nhận những con người phía sau, thì Đường Sao Tỏa Sáng là hành trình của những ngôi sao đang tỏa sáng.
-
-</p>
-
-<a class="starlink"
-href="https://duongsaotoasang.com"
-target="_blank">
-
-Khám phá duongsaotoasang.com
-
-</a>
-
-</section>
-
-
-<section id="contact" class="section contact">
-
-<h2>
-
-Liên hệ
-
-</h2>
-
-<p>
-
-Nếu bạn muốn kết nối hoặc đồng hành cùng dự án này, vui lòng liên hệ qua email:
-
-</p>
-
-<div class="email">
-
-phiasaumannhung.com@gmail.com
-
-</div>
-
-</section>
-
-
-<footer>
-
-© Phía Sau Màn Nhung
-
-</footer>
-
-<script src="/assets/app.js"></script>
-
+  <div class="bg"></div>
+  <div class="spotlights"></div>
+
+  <header class="site-header">
+    <div class="header-wrap">
+      <a class="brand" href="#top" aria-label="Phía Sau Màn Nhung">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-kicker">Website đang nâng cấp</span>
+          <span class="brand-title">Phía Sau Màn Nhung</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Điều hướng chính">
+        <a href="#gioi-thieu">Giới thiệu</a>
+        <a href="#y-nghia">Ý nghĩa</a>
+        <a href="#lien-ket">Đường Sao Tỏa Sáng</a>
+        <a class="nav-cta" href="#lien-he">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-wrap">
+      <div class="hero-copy">
+        <div class="eyebrow">Đang nâng cấp phiên bản mới đẹp hơn và sâu hơn</div>
+        <h1>Phía Sau Màn Nhung</h1>
+        <p class="hero-lead">
+          Một không gian dành cho <strong>những con người âm thầm nâng đỡ, hỗ trợ và đồng hành</strong> cùng các ngôi sao, nghệ sĩ, nhà sáng tạo và những người tạo ảnh hưởng tích cực trên toàn cầu. Không phải ai cũng đứng dưới ánh đèn sân khấu, nhưng chính những người phía sau đã làm nên điều rực rỡ phía trước.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#gioi-thieu">Khám phá dự án</a>
+          <a class="btn btn-secondary" href="https://duongsaotoasang.com" target="_blank" rel="noopener noreferrer">Đi tới Đường Sao Tỏa Sáng</a>
+        </div>
+
+        <div class="hero-note">
+          Website hiện đang trong giai đoạn hoàn thiện phiên bản nâng cấp với giao diện động đẹp hơn, cấu trúc rõ hơn và nội dung sâu hơn để phản ánh đúng tinh thần của dự án.
+        </div>
+      </div>
+
+      <div class="hero-stage" aria-hidden="true">
+        <div class="frame">
+          <div class="halo"></div>
+          <div class="frame-stage"></div>
+          <div class="silhouette"></div>
+          <div class="curtain left"></div>
+          <div class="curtain right"></div>
+          <div class="frame-floor"></div>
+
+          <div class="glow-card">
+            <p class="small">Siêu ý tưởng</p>
+            <p>Nơi tôn vinh những người không cần đứng giữa sân khấu nhưng vẫn là một phần không thể thiếu của mọi hành trình tỏa sáng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <span class="mouse"></span>
+      <span>Kéo xuống</span>
+    </div>
+  </section>
+
+  <main class="main">
+    <section class="section intro reveal" id="gioi-thieu">
+      <div class="grid">
+        <div class="panel left">
+          <div class="panel-inner">
+            <p class="kicker">Giới thiệu cơ bản</p>
+            <h2>Đằng sau mỗi ánh đèn là một hệ sinh thái của sự đồng hành</h2>
+            <p>
+              Phía Sau Màn Nhung không chỉ là một tên gọi. Đây là một hướng nhìn khác về thế giới của nghệ thuật, danh tiếng, sân khấu, truyền thông và ảnh hưởng xã hội. Nơi đây dành cho những người tổ chức, quản lý, cố vấn, bảo vệ, tài trợ, xây dựng hình ảnh, lo hậu trường, điều phối, đồng hành và nâng đỡ để các nghệ sĩ và ngôi sao có thể bước ra đúng lúc, đúng cách và tỏa sáng trọn vẹn.
+            </p>
+            <p>
+              Website này được mở ra trước hết như một không gian giới thiệu nền tảng, trong khi phiên bản đầy đủ đang tiếp tục được nâng cấp để trở thành một nơi kết nối, ghi nhận và lan tỏa giá trị của những con người đứng phía sau mọi thành tựu lớn.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel right">
+          <div class="panel-inner">
+            <p class="kicker">Tinh thần cốt lõi</p>
+            <div class="stat-list">
+              <div class="stat">
+                <strong>Âm thầm</strong>
+                <span>Không cần phô bày nhưng luôn hiện diện đúng lúc, đúng chỗ, đúng vai trò.</span>
+              </div>
+              <div class="stat">
+                <strong>Nâng đỡ</strong>
+                <span>Hỗ trợ để người khác có thể đứng vững, trưởng thành và tỏa sáng bền vững hơn.</span>
+              </div>
+              <div class="stat">
+                <strong>Đồng hành</strong>
+                <span>Không chỉ giúp một khoảnh khắc thành công mà đi cùng cả một hành trình dài.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section vision reveal" id="y-nghia">
+      <div class="panel">
+        <div class="panel-inner">
+          <p class="kicker">Ý nghĩa của website</p>
+          <h2>Một sân khấu khác dành cho những người thường không được gọi tên</h2>
+          <p>
+            Thế giới thường chỉ nhìn thấy kết quả cuối cùng. Người ta thấy tiếng vỗ tay, ánh đèn, trang bìa, các buổi biểu diễn, các giải thưởng, những khoảnh khắc bùng nổ. Nhưng phía sau đó luôn là những người làm việc trong im lặng, với trách nhiệm lớn, áp lực thật và sự cống hiến bền bỉ.
+          </p>
+          <p>
+            Phía Sau Màn Nhung được hình dung như một nơi để nhìn lại tầng sâu ấy. Không phải để cạnh tranh với ánh sáng sân khấu, mà để trả lại sự trân trọng cho những mắt xích đã giúp ánh sáng đó tồn tại. Đây là ý tưởng dành cho một hệ sinh thái nhân văn hơn, nơi công lao âm thầm cũng được nhìn thấy, kết nối đúng người và phát triển thành những giá trị lâu dài.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cards reveal">
+      <div class="grid">
+        <div class="item">
+          <article class="item-card">
+            <div class="item-icon">✦</div>
+            <h3>Những người hậu trường</h3>
+            <p>
+              Những người chuẩn bị, giữ nhịp, xử lý, bảo vệ và đảm bảo mọi thứ diễn ra trọn vẹn nhưng thường không xuất hiện ở vị trí trung tâm.
+            </p>
+          </article>
+        </div>
+
+        <div class="item">
+          <article class="item-card">
+            <div class="item-icon">✦</div>
+            <h3>Những người đồng hành chiến lược</h3>
+            <p>
+              Những người cố vấn, quản lý, định hướng, hỗ trợ truyền thông, kết nối cơ hội và giúp nghệ sĩ hay người nổi tiếng đi xa hơn bằng nền tảng đúng đắn.
+            </p>
+          </article>
+        </div>
+
+        <div class="item">
+          <article class="item-card">
+            <div class="item-icon">✦</div>
+            <h3>Những người nâng đỡ bằng giá trị thật</h3>
+            <p>
+              Những người tài trợ, hỗ trợ nguồn lực, tạo điều kiện và đầu tư cho những hành trình đẹp đẽ mà không nhất thiết phải bước ra nhận hào quang về mình.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section link-panel reveal" id="lien-ket">
+      <div class="panel">
+        <div class="panel-inner">
+          <div class="link-block">
+            <div class="link-badge" aria-hidden="true">✦</div>
+            <div class="link-copy">
+              <p class="kicker">Liên kết mở rộng</p>
+              <h3>Đường Sao Tỏa Sáng</h3>
+              <p>
+                Nếu Phía Sau Màn Nhung là nơi giới thiệu những con người âm thầm đứng phía sau, thì Đường Sao Tỏa Sáng là không gian gần hơn với hành trình tỏa sáng của các ngôi sao, nghệ sĩ và những người tạo ảnh hưởng tích cực. Bấm vào liên kết bên cạnh để khám phá trước khi hệ thống này được kết nối sâu hơn trong phiên bản đầy đủ.
+              </p>
+            </div>
+          </div>
+
+          <a class="external" href="https://duongsaotoasang.com" target="_blank" rel="noopener noreferrer">
+            Vào duongsaotoasang.com
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact reveal" id="lien-he">
+      <div class="panel">
+        <div class="panel-inner">
+          <div>
+            <p class="kicker">Liên hệ khi cần thiết</p>
+            <h2>Kết nối cho dự án này</h2>
+            <p>
+              Trong thời gian website đang hoàn thiện, mọi nhu cầu liên hệ, đóng góp ý tưởng, hợp tác phát triển, kết nối nghệ sĩ, đội ngũ hậu trường, nhà đồng hành hoặc đối tác có thể gửi trực tiếp qua email chính thức dưới đây.
+            </p>
+            <a class="mail" href="mailto:phiasaumannhung.com@gmail.com">phiasaumannhung.com@gmail.com</a>
+          </div>
+
+          <div class="contact-card">
+            <p class="kicker">Phiên bản hiện tại</p>
+            <p>
+              Đây là trang giới thiệu cơ bản của phiên bản đang nâng cấp. Bản tiếp theo sẽ được mở rộng theo hướng đẹp hơn, rõ hơn và xứng đáng hơn với siêu ý tưởng Phía Sau Màn Nhung.
+            </p>
+            <ul class="mini-list">
+              <li>Giao diện điện ảnh, cảm giác sân khấu và hậu trường</li>
+              <li>Nội dung giới thiệu rõ vai trò của những người âm thầm đứng sau</li>
+              <li>Liên kết điều hướng sang Đường Sao Tỏa Sáng</li>
+              <li>Kênh liên hệ chính thức để kết nối trước khi hệ thống đầy đủ đi vào hoạt động</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div>© Phía Sau Màn Nhung</div>
+      <div>Website giới thiệu phiên bản đang nâng cấp • Cloudflare Pages Ready</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => io.observe(el));
+      } else {
+        revealEls.forEach(el => el.classList.add('in'));
+      }
+
+      const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          const id = this.getAttribute('href');
+          const target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
